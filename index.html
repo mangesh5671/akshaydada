@@ -5,93 +5,255 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Creative Production</title>
-    <link href="https://fonts.googleapis.com/css2?family=Neue+Montreal:wght@400;700&display=swap" rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Local Neue Montreal Fonts -->
     <style>
-        /* Load Neue Montreal Font (Regular, Medium, Bold as needed) */
+        @font-face {
+            font-family: "Neue Montreal";
+            src: url("/fonts/neue-montreal/NeueMontreal-Regular.woff2") format("woff2");
+            font-weight: 400;
+        }
         
         @font-face {
-            font-family: 'Neue Montreal';
-            src: url('/fonts/neue-montreal/NeueMontreal-Regular.woff2') format('woff2');
-            font-weight: 200;
-            font-style: normal;
+            font-family: "Neue Montreal";
+            src: url("/fonts/neue-montreal/NeueMontreal-Bold.woff2") format("woff2");
+            font-weight: 700;
         }
         
         body {
-            font-family: 'Neue Montreal';
-            color: #111111;
+            min-width: none;
+            margin: 0;
+            font-family: "Neue Montreal", sans-serif;
+            color: #111;
+            background: white;
+        }
+        /* HEADER */
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
         }
         
-        h1 {
-            letter-spacing: -2px;
+        header img {
+            height: 3rem;
+            width: auto;
+        }
+        
+        @media (min-width: 640px) {
+            header img {
+                height: 5rem;
+            }
+        }
+        
+        .header-text {
+            font-size: 12px;
             font-weight: 300;
-            /* You can change to 400 or 500 if needed */
+            letter-spacing: 0.03em;
+            text-align: right;
+            user-select: none;
+        }
+        
+        @media (min-width: 640px) {
+            .header-text {
+                font-size: 20px;
+            }
+        }
+        /* MAIN HEADING - FIXED FOR MOBILE */
+        
+        .main-heading {
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: 300;
+            line-height: 1.1;
+            font-size: 2.4rem;
+        }
+        
+        @media (max-width: 480px) {
+            .main-heading {
+                font-size: 1.4rem;
+                white-space: normal;
+                overflow: visible;
+                text-overflow: unset;
+                padding: 0 0.5rem;
+            }
+        }
+        
+        @media (min-width: 640px) {
+            .main-heading {
+                font-size: 2rem;
+                white-space: nowrap;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            .main-heading {
+                font-size: 4rem;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .main-heading {
+                font-size: 4.5rem;
+            }
+        }
+        
+        @media (min-width: 1280px) {
+            .main-heading {
+                font-size: 6.5rem;
+            }
+        }
+        /* FULL SCREEN HERO SECTION */
+        
+        main {
+            width: 100%;
+            min-height: 100vh;
+            /* FIXED FULL SCREEN HEIGHT */
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            padding: 0;
+        }
+        
+        .bg-image {
+            position: absolute;
+            inset: 0;
+            height: 100%;
+            padding-left: 5px;
+            /* mobile default */
+            padding-right: 5px;
+            /* mobile default */
+        }
+        
+        @media (min-width: 768px) {
+            .bg-image {
+                padding-left: 20px;
+                /* desktop */
+                padding-right: 20px;
+                /* desktop */
+            }
+        }
+        
+        .bg-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .content {
+            z-index: 10;
+            text-align: center;
+        }
+        /* CTA BUTTON */
+        
+        .cta-button {
+            background: rgba(30, 58, 138, 0.4);
+            color: white;
+            border: 1px solid rgba(96, 165, 250, 0.8);
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            font-size: 16px;
+            letter-spacing: 0.08em;
+            transition: 0.3s;
+        }
+        
+        .cta-button:hover {
+            background: rgba(30, 58, 138, 0.7);
+            border-color: rgba(191, 219, 254, 1);
+        }
+        /* PARAGRAPH SECTION */
+        
+        .paragraph-text {
+            max-width: 75rem;
+            margin: 2rem auto;
+            text-align: center;
+            font-weight: 300;
+            font-size: 18px;
+            line-height: 1.4;
+            padding: 0 1rem;
+        }
+        
+        .paragraph-text p {
+            margin-bottom: 1.8rem;
+        }
+        /* CONTACT BUTTON */
+        
+        .contact-div {
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .contact-button {
+            background: black;
+            color: white;
+            border: 2px solid black;
+            padding: 0.75rem 4rem;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            transition: 0.3s;
+        }
+        
+        .contact-button:hover {
+            background: white;
+            color: black;
+        }
+        /* MOBILE FIX */
+        
+        @media (max-width: 480px) {
+            .paragraph-text {
+                font-size: 6px;
+            }
+            .cta-button {
+                padding: 0.6rem 1.5rem;
+                font-size: 14px;
+            }
         }
     </style>
-
 </head>
 
-<body class="bg-white">
+<body>
 
-    <!-- Header -->
-    <header class="flex justify-between items-center px-6 py-6">
-        <img src="/logo.PNG" alt="Logo" class="h-10 sm:h-20 w-auto" />
-
-        <div class="text-[12px] sm:text-[20px] font-thin tracking-wide select-none text-right">
-            WEB3 CREATIVE PRODUCTIONS
-        </div>
+    <!-- HEADER -->
+    <header>
+        <img src="/logo.PNG" alt="Logo" />
+        <div class="header-text">WEB3 CREATIVE PRODUCTIONS</div>
     </header>
 
-    <h1 class="w-full px-6 
-           text-[1.8rem] sm:text-[2rem] md:text-[3.6rem] lg:text-[5.4rem] xl:text-[6.8rem]
-           font-light uppercase leading-[1.1] sm:leading-none
-           mb-0 text-center">
-        WE DON’T CHASE PROJECTS
-    </h1>
+    <!-- MAIN HEADING -->
+    <h1 class="main-heading">WE DON'T CHASE PROJECTS</h1>
 
-
-
-
-    <!-- Title -->
-    <main class="w-full h-[600px] p-4 flex-1 flex flex-col items-center justify-center relative overflow-hidden">
-        <!-- Background Image -->
-        <div class="w-full md:h-[600px] absolute inset-0 p-4">
-            <img src="../BG img.png" class="  object-cover object-center w-full h-full" alt="">
+    <!-- FULLSCREEN HERO -->
+    <main>
+        <div class="bg-image">
+            <img src="../BG img.png" alt="Background Image">
         </div>
 
-        <!-- Content -->
-        <div class="relative z-10 text-center px-4 sm:px-8 max-w-6xl mx-auto">
-            <!-- CTA Button -->
+        <div class="content">
             <a href="https://drive.google.com/drive/folders/1FD6AN75zSkt4o3cU-5cUPja6R5RqgpuZ">
-                <button id="portfolioBtn" class="bg-blue-900/40 hover:bg-blue-900/70 
-           text-white px-8 sm:px-20 py-3 sm:py-4 
-           rounded-lg text-[18px] sm:text-sm tracking-widest 
-           transition-all duration-300 
-           border border-blue-400/80 hover:border-blue-200">
-                EXPLORE PORTFOLIO
-            </button>
+                <button class="cta-button">EXPLORE PORTFOLIO</button>
             </a>
         </div>
-
-        <!-- Decorative elements -->
-        <!-- <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black/20 to-transparent"></div> -->
     </main>
-    <!-- Paragraph text content -->
-    <section class="w-full max-w-6xl mt-6 text-center px-2 space-y-8 text-[20px] font-thin leading-snug tracking-normal text-[#111111] items-center mx-auto">
-        <p>WE TAKE ON PROJECTS THAT SPEAK TO OUR CREATIVE SOUL. WHEN THE VISION ALIGNS, WE ENTER <br> THAT FLOW STATE WHERE EVERYTHING FEELS EFFORTLESS</p>
-        <p>BECAUSE TO US, THIS IS NOT A JOB. <br> THIS IS THE THING WE BREATHE.</p>
-        <p>WE’RE NOT FILM-SCHOOL KIDS. <br> WE’RE SELF-TAUGHT, SELF-MADE, AND SHAPED BY PURE OBSESSION.</p>
-        <p>EVERYTHING WE KNOW CAME FROM SHOOTING ENDLESSLY, EXPERIMENTING, BREAKING RULES, <br> FIXING OUR MISTAKES, AND LEARNING BY PUSHING OUR LIMITS AGAIN AND AGAIN.</p>
-        <p>THAT’S WHY THE CREATIVITY YOU SEE FROM US FEELS DIFFERENT<br> IT WASN’T TAUGHT TO US. WE BUILT IT FROM SCRATCH.</p>
+
+    <!-- PARAGRAPHS -->
+    <section class="paragraph-text">
+        <p>WE TAKE ON PROJECTS THAT SPEAK TO OUR CREATIVE SOUL. WHEN THE VISION ALIGNS, WE ENTER <br>THAT FLOW STATE WHERE EVERYTHING FEELS EFFORTLESS.</p>
+        <p>BECAUSE TO US, THIS IS NOT A JOB.<br> THIS IS THE THING WE BREATHE.</p>
+        <p>WE'RE NOT FILM-SCHOOL KIDS.<br> WE'RE SELF-TAUGHT, SELF-MADE, AND SHAPED BY PURE OBSESSION.</p>
+        <p>EVERYTHING WE KNOW CAME FROM SHOOTING ENDLESSLY, EXPERIMENTING, BREAKING RULES,<br> FIXING OUR MISTAKES, AND LEARNING BY PUSHING OUR LIMITS AGAIN AND AGAIN.</p>
+        <p>THAT'S WHY THE CREATIVITY YOU SEE FROM US FEELS DIFFERENT<br>IT WASN'T TAUGHT TO US. WE BUILT IT FROM SCRATCH.</p>
     </section>
 
-    <!-- Contact us button -->
-    <div class="mt-16 w-full flex justify-center px-6">
-
-        <button type="button" class="border border-black border-2 bg-black text-white px-16 py-3 mb-4 text-m font-medium tracking-wide hover:bg-white hover:text-black transition">
-        CREATE TOGETHER     </button>
+    <!-- CONTACT BUTTON -->
+    <div class="contact-div">
+        <a href="#">
+            <button class="contact-button">CREATE TOGETHER</button>
+        </a>
     </div>
-
 
 </body>
 
